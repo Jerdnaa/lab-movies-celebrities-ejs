@@ -1,5 +1,6 @@
 const Celebrity = require('../models/Celebrity.model')
 const Movie = require('../models/Movie.model')
+const { route } = require('./celebrities.routs')
 
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require('express').Router()
@@ -30,6 +31,18 @@ router.post("/create", async (req, res) => {
         res.redirect("/movies")
     }   catch (error) {
         console.log(error);
+    }
+})
+
+router.get("/:id", (req, res) => {
+    const movieId = req.params.id;
+    console.log(movieId)
+    try {
+        const oneMovie = Movie.findById(movieId)
+        // console.log(oneMovie)
+        res.render("movies/movie-details", {oneMovie})
+    } catch (error) {
+        console.log(error)
     }
 })
 
