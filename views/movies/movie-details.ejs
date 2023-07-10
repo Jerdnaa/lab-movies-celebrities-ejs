@@ -2,3 +2,7 @@
 <h3><%= oneMovie.title %></h3>
 <h4><%= oneMovie.genre %></h4>
 <p><%= oneMovie.plot %></p>
+
+<form action="/movies/<%= oneMovie._id %>/delete" method="POST">
+<button type="submit">DELETE</button>
+</form>
