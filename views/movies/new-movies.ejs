@@ -10,7 +10,7 @@
     <label>Plot: 
         <input type="text" name="plot">
     </label>
-    <select name="cast">
+    <select name="cast" multiple>
         <% allCelebs.forEach(celeb => { %>
          <option value="<%- celeb._id %>"><%= celeb.name %></option>
         <% }) %>
